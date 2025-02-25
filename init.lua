@@ -163,9 +163,11 @@ vim.opt.scrolloff = 10
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- For exploring file systems
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
+vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Explore the current files' })
+-- For restarting the LSP
+vim.keymap.set('n', '<leader>pr', vim.cmd.LspRestart, { desc = 'Restart the lsp server' })
 -- Going to the terminal
-vim.keymap.set('n', '2', vim.cmd.terminal)
+vim.keymap.set('n', '2', vim.cmd.terminal, { desc = 'Opens the terminal' })
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
@@ -675,6 +677,22 @@ require('lazy').setup({
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         ts_ls = {},
         --
+        intelephense = {
+          settings = {
+            intelephense = {
+              stubs = {
+                'laravel',
+              },
+              files = {
+                maxSize = 5000000, -- Asegurar que pueda leer archivos grandes
+                associations = { '**/*.php' }, -- Leer todos los archivos PHP del proyecto
+              },
+              environment = {
+                includePaths = { vim.fn.expand '$HOME/.composer/vendor/php-stubs/' },
+              },
+            },
+          },
+        },
 
         lua_ls = {
           -- cmd = { ... },
