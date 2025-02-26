@@ -167,7 +167,7 @@ vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Explore the current file
 -- For restarting the LSP
 vim.keymap.set('n', '<leader>pr', vim.cmd.LspRestart, { desc = 'Restart the lsp server' })
 -- Going to the terminal
-vim.keymap.set('n', '2', vim.cmd.terminal, { desc = 'Opens the terminal' })
+vim.keymap.set('n', '<leader>p2', vim.cmd.terminal, { desc = 'Opens the terminal' })
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
