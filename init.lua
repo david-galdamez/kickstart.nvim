@@ -275,7 +275,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<C-h>', function()
         harpoon:list():select(1)
       end)
-      vim.keymap.set('n', '<C-t>', function()
+      vim.keymap.set('n', '<C-y>', function()
         harpoon:list():select(2)
       end)
       vim.keymap.set('n', '<C-n>', function()
